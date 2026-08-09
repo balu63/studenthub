@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StudentHub — Everything a Student Needs</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar glass" id="navbar">
+        <div class="nav-container">
+            <div class="logo" onclick="navigate('home')">🎓 StudentHub</div>
+            <div class="nav-links" id="navLinks">
+                <a onclick="navigate('home')">Home</a>
+                <a onclick="navigate('resources')">Resources</a>
+                <a onclick="navigate('opportunities')">Opportunities</a>
+                <a onclick="navigate('planner')">Study Planner</a>
+                <a onclick="navigate('quiz')">Quiz</a>
+                <a onclick="navigate('tools')">Tools</a>
+            </div>
+            <div class="nav-actions">
+                <button onclick="toggleTheme()" id="themeBtn">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="profile-icon" onclick="toggleAuth()" id="profileIcon">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="hamburger" onclick="toggleMobileMenu()">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-header">
+            <span class="logo">🎓 StudentHub</span>
+            <button onclick="toggleMobileMenu()"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="mobile-links">
+            <a onclick="navigate('home')">Home</a>
+            <a onclick="navigate('resources')">Resources</a>
+            <a onclick="navigate('opportunities')">Opportunities</a>
+            <a onclick="navigate('planner')">Study Planner</a>
+            <a onclick="navigate('quiz')">Quiz</a>
+            <a onclick="navigate('tools')">Tools</a>
+            <hr style="border-color:rgba(255,255,255,0.1);margin:1rem 0;" />
+            <a onclick="handleLogout()" style="color:#f87171;display:none;" id="mobileLogoutBtn">Logout</a>
+        </div>
+    </div>
+
+    <!-- Auth Modal -->
+    <div class="auth-modal" id="authModal">
+        <div class="auth-modal-content">
+            <button class="auth-close" onclick="closeAuthModal()">&times;</button>
+            <div id="authContent">
+                <!-- Dynamic auth content -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Content -->
+    <div id="app" class="page-content">
+        <!-- Dynamic content loaded here -->
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    
+    <!-- App JavaScript -->
+    <script src="app.js"></script>
+</body>
+</html>
